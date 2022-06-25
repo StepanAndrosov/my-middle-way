@@ -1,0 +1,9 @@
+.LedgerCounter {
+    padding: 20px;
+}
+.selectBlock {
+    max-width: 300px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
