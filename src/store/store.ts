@@ -1,14 +1,20 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
-import thunkMiddleware from "redux-thunk";
+import thunk from "redux-thunk";
+import {configureStore} from "@reduxjs/toolkit";
+import {combineReducers} from "redux";
+import { tsReducer } from "./typescriptCourse";
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
+    tsCourse: tsReducer
 })
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware))
+export const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().prepend(thunk)
+})
 
-export default store
-
-export type AppStoreType = ReturnType<typeof reducers>
+export type AppStoreType = ReturnType<typeof rootReducer>
+export type AppDispatchType = typeof store.dispatch
 
 // @ts-ignore
 window.store = store // for dev

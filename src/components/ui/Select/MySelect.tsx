@@ -14,7 +14,9 @@ type Props = {
 export const MySelect: React.FC<Props> = (props) => (
   <Select showSearch placeholder={props.placeholder} onChange={onChange}>
     {props.options.map((o) => (
-      <Option value={o.value}>{o.text}</Option>
+      <Option key={o.value} value={o.value}>
+        {o.text}
+      </Option>
     ))}
   </Select>
 )
