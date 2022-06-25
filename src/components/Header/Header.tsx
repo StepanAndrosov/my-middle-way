@@ -11,12 +11,11 @@ export const Header = () => {
   return (
     <div className={style.Header}>
       <Row>
-        <Col span={2}>
+        <Col span={1}>
           <NavLink to="/">
             <HomeOutlined />
           </NavLink>
         </Col>
-
         <Col span={3}>
           <NavLink
             to="typescript"
@@ -42,7 +41,6 @@ export const Header = () => {
             Regular expression
           </NavLink>
         </Col>
-
         <Col span={3}>
           <NavLink
             to="networks"

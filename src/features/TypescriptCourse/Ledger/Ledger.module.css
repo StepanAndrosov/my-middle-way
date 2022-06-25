@@ -1,0 +1,25 @@
+.content{
+    display: flex;
+    flex-direction: column;
+}
+.codeStyle{
+    display: flex;
+    flex-direction: column;
+}
+.codeString{
+    display: flex;
+    margin-left: 5px;
+}
+.green{
+    margin-left: 4px;
+    font-weight: 500;
+    color: green;
+}
+.blue {
+    margin-left: 4px;
+    font-weight: 500;
+    color: blue;
+}
+.bracers {
+    align-self: flex-start;
+}
