@@ -1,6 +1,7 @@
 import { Col, Row } from 'antd'
 import style from './Header.module.css'
 import { NavLink } from 'react-router-dom'
+import { HomeOutlined } from '@ant-design/icons'
 
 export const Header = () => {
   let activeStyle = {
@@ -10,24 +11,30 @@ export const Header = () => {
   return (
     <div className={style.Header}>
       <Row>
-        <Col span={6}>
+        <Col span={2}>
+          <NavLink to="/">
+            <HomeOutlined />
+          </NavLink>
+        </Col>
+
+        <Col span={3}>
           <NavLink
-            to="typesript"
+            to="typescript"
             style={({ isActive }) => (isActive ? activeStyle : {})}
           >
             TypeScript
           </NavLink>
         </Col>
 
-        <Col span={6}>
+        <Col span={3}>
           <NavLink
-            to="algotithms"
+            to="algorithms"
             style={({ isActive }) => (isActive ? activeStyle : {})}
           >
             Algorithms
           </NavLink>
         </Col>
-        <Col span={6}>
+        <Col span={3}>
           <NavLink
             to="regex"
             style={({ isActive }) => (isActive ? activeStyle : {})}
@@ -36,7 +43,7 @@ export const Header = () => {
           </NavLink>
         </Col>
 
-        <Col span={6}>
+        <Col span={3}>
           <NavLink
             to="networks"
             style={({ isActive }) => (isActive ? activeStyle : {})}
