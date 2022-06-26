@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { LedgerItem } from "../../data/ledger/types"
+import { LedgerItem } from "../../data/types"
+import { ledgerDB } from "../../data"
+
+const initialState: LedgerItem[] = ledgerDB
 
 export const slice = createSlice({
-    name: "ts-course",
-    initialState: {
-        ledger: [] as LedgerItem[]
-    },
+    name: "ledger",
+    initialState,
     reducers: {
         addLedger(state, action: PayloadAction<{ledger: LedgerItem[]}>) {
-            state = action.payload
+            state = action.payload.ledger
         }
     },
 

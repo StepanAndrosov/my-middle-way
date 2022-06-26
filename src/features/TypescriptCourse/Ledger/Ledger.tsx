@@ -1,19 +1,9 @@
-import { useEffect } from 'react'
 import { Divider } from 'antd'
 import style from './Ledger.module.css'
 import { LedgerCodeCard } from './LedgerCodeCard/LedgerCodeCard'
 import { LedgerCounter } from './LegerCounter/LedgerCounter'
-import { useActions } from '../../../utils/redux-utils'
-import { tsActions } from '../../../store/typescriptCourse'
-import { ledgerDB } from '../../../data/ledger/ledgerDB'
 
 export const Ledger: React.FC = () => {
-  const { addLedger } = useActions(tsActions)
-
-  useEffect(() => {
-    addLedger({ ledger: ledgerDB })
-  }, [addLedger])
-
   return (
     <div>
       <h2>Ledger</h2>

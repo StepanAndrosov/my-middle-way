@@ -1,12 +1,12 @@
-import { slice } from "./tsCourse";
+import { slice } from "./ledgerReducer";
 
-const tsReducer = slice.reducer
+const ledgerReducer = slice.reducer
 
-const tsActions = {
+const ledgerActions = {
     ...slice.actions
 }
 
 export {
-    tsReducer,
-    tsActions
+    ledgerReducer,
+    ledgerActions
 }

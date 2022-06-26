@@ -1,8 +1,14 @@
+import { useEffect } from 'react'
 import { MySelect } from '../../../../components'
 import style from './LedgerCounter.module.css'
 import { Button } from 'antd'
+import { useSelector } from 'react-redux'
+import { selectDays } from '../selectors'
 
 export const LedgerCounter: React.FC = () => {
+  const days = useSelector(selectDays)
+  useEffect(() => console.log(days), [days])
+
   return (
     <div className={style.LedgerCounter}>
       <div className={style.selectBlock}>

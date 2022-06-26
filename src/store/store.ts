@@ -1,10 +1,10 @@
 import thunk from "redux-thunk";
 import {configureStore} from "@reduxjs/toolkit";
 import {combineReducers} from "redux";
-import { tsReducer } from "./typescriptCourse";
+import { ledgerReducer } from "./typescriptCourse";
 
 const rootReducer = combineReducers({
-    tsCourse: tsReducer
+    ledger: ledgerReducer
 })
 
 export const store = configureStore({
@@ -13,7 +13,7 @@ export const store = configureStore({
         getDefaultMiddleware().prepend(thunk)
 })
 
-export type AppStoreType = ReturnType<typeof rootReducer>
+export type AppStoreType = ReturnType<typeof store.getState>
 export type AppDispatchType = typeof store.dispatch
 
 // @ts-ignore
