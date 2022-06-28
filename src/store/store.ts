@@ -4,7 +4,7 @@ import {combineReducers} from "redux";
 import { ledgerReducer } from "./typescriptCourse";
 
 const rootReducer = combineReducers({
-    ledger: ledgerReducer
+    ledgerStore: ledgerReducer
 })
 
 export const store = configureStore({

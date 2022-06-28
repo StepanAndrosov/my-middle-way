@@ -1,4 +1,4 @@
-import { slice } from "./ledgerReducer";
+import { slice } from "./ledger/ledgerReducer";
 
 const ledgerReducer = slice.reducer
 

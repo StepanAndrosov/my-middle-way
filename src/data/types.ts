@@ -1,5 +1,4 @@
-
-export interface LedgerItem {
+interface LedgerItem {
         generalLedgerId: number
         posted: string
         debitAccountId: string
@@ -7,3 +6,17 @@ export interface LedgerItem {
         amount: number
         referenceId: string
       }
+
+interface AccountDaily {
+        date: string;
+        debitDayTotal: number;
+        creditDayTotal: number;
+      }
+
+      export type {
+        LedgerItem,
+        AccountDaily
+      }
+
+      
+      
