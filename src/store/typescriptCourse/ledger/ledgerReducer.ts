@@ -15,13 +15,14 @@ export const slice = createSlice({
             state.ledger = action.payload.ledger
         },
         accountDailyReducer(state, action: PayloadAction<{id: string}>) {
-            const { id} = action.payload
+            const { id } = action.payload
+            console.log('reducer', id)
             const debitDays = state.ledger.filter(l => l.debitAccountId === id)
             const creditDays = state.ledger.filter(l => l.creditAccountId === id)
             const days = [...debitDays, ...creditDays]
            
-           state.accountDays = days.map(d => ({date: d.posted.slice(0, 10), debitDayTotal: d.debitAccountId === id ? d.amount : 0, creditDayTotal: d.creditAccountId === id ? d.amount : 0}))
-        }
+           state.accountDays = days.map(d => ({id: id, date: d.posted.slice(0, 10), debitDayTotal: d.debitAccountId === id ? d.amount : 0, creditDayTotal: d.creditAccountId === id ? d.amount : 0}))
+        },
     },
 
 })

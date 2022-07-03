@@ -8,6 +8,7 @@ interface LedgerItem {
       }
 
 interface AccountDaily {
+        id: string;
         date: string;
         debitDayTotal: number;
         creditDayTotal: number;

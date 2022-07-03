@@ -1,9 +1,20 @@
 .LedgerCounter {
-    padding: 20px;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
 }
-.selectBlock {
+.SelectBlock {
     max-width: 300px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+}
+.selectItem {
+    padding-left: 10px;
+    padding-top: 10px;
+    font-size: larger;
+}
+.AccountLedger {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
 }

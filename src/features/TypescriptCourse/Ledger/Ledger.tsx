@@ -14,7 +14,7 @@ export const Ledger: React.FC = () => {
         <LedgerCodeCard />
         <div>
           <h4>
-            This object must be converted to another list - daily account
+            This object must be converted to another list daily account
             turnovers.
           </h4>
           <p>The solution to this task in the interface:</p>
