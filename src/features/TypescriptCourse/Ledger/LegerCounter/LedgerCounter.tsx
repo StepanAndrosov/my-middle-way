@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import { memo, useState, useCallback } from 'react'
 import { MySelect } from '../../../../components'
 import style from './LedgerCounter.module.css'
 import { Button } from 'antd'
@@ -27,20 +27,20 @@ export const LedgerCounter = memo(() => {
     (a, i, arr) => arr.indexOf(a) === i
   )
 
-  const onChooseAccount = (item: string) => {
+  const onChooseAccount = useCallback((item: string) => {
     accountDailyReducer({ id: item })
     setAccount(item)
-  }
+  },[accountDailyReducer])
 
   type CountKeys = 'creditDayTotal' | 'debitDayTotal'
 
-  const onCountTotal = (key: CountKeys): number => {
+  const onCountTotal = useCallback((key: CountKeys): number => {
     const total = accountsDays
       .filter((a) => a[key] !== 0)
       .map((a) => a[key])
       .reduce((a, b) => a + b)
     return Number(total.toFixed(2))
-  }
+  }, [accountsDays])
 
   const onCount = () => {
     setCredit(onCountTotal('creditDayTotal'))

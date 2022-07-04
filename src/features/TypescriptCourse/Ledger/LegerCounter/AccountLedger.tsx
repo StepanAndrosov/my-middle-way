@@ -10,7 +10,6 @@ export const AccountLedger: React.FC<Props> = (props) => {
   return (
     <div className={style.AccountLedger}>
       <h3>Account sum</h3>
-
       <span>account: {props.account ? props.account : 'string'}</span>
       <span>
         debitDayTotal: {props.debitTotal ? props.debitTotal : 'number'}
