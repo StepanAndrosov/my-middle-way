@@ -4,5 +4,24 @@
 }
 a {
     color: white;
-    opacity: .5;
+}
+.Row {
+    display: none;
+}
+@media (min-width: 640px) {
+    .Row {
+        display: flex;
+    }
+}
+.Menu {
+    max-width: 250px;
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 640px) {
+    .Menu {
+        display: none;
+    }
 }

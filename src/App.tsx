@@ -15,8 +15,8 @@ function App() {
           <MyHeader />
         </Header>
         <Content
+          className="site-content"
           style={{
-            padding: '0 50px',
             height: '100%',
           }}
         >

@@ -3,10 +3,26 @@
   height: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
 }
+
+.site-content {
+  padding: 0 8px;
+}
+
 .site-layout-content {
-  min-height: 100%;
-  padding: 24px;
+  min-height: 80vh;
+  padding: 0 8px;
   background: #fff;
+}
+@media (min-width: 640px) {
+  .App {
+    padding: 0 20px;
+  }
+  .site-layout-content {
+    padding: 24px;
+  }
+  .site-content {
+    padding: 0 50px;
+  }
 }
