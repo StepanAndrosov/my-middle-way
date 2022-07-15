@@ -1,13 +1,14 @@
 import { Divider, Collapse, Button } from 'antd'
 import { useState } from 'react'
-import { MyArrowIcon } from '../../../components/ui/ArrowIcon/MyArrowIcon'
 import { RadioGroup } from '../../../components/ui/RadioGroup/RadioGroup'
+import { ChooseComponent } from './ChooseComponent/ChooseComponent'
 import style from './UIFactory.module.css'
 
 const { Panel } = Collapse
 
 export const UIFactory = () => {
   const [component, setComponent] = useState('')
+  const [choose, setChoose] = useState(false)
 
   const onAddItem = (name: string) => {
     setComponent(name)
@@ -25,16 +26,17 @@ export const UIFactory = () => {
               items={['Button', 'Select', 'Arrow']}
               onAddItem={onAddItem}
             />
-            {component}
-            <Button className={style.btn} type="default">
+            <Button
+              className={style.btn}
+              type="default"
+              disabled={!component}
+              onClick={() => setChoose(true)}
+            >
               Continue
             </Button>
           </div>
           <div className={style.component}>
-            <MyArrowIcon direction="up" />
-            <MyArrowIcon direction="right" />
-            <MyArrowIcon direction="down" />
-            <MyArrowIcon direction="left" />
+            {choose && <ChooseComponent component={component} />}
           </div>
         </div>
 
