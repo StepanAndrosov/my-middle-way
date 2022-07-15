@@ -1,21 +1,33 @@
-import { Divider, Collapse, Checkbox, Button } from 'antd'
+import { Divider, Collapse, Button } from 'antd'
+import { useState } from 'react'
 import { MyArrowIcon } from '../../../components/ui/ArrowIcon/MyArrowIcon'
-import { ChooseComponent } from './ChooseComponent/ChooseComponent'
+import { RadioGroup } from '../../../components/ui/RadioGroup/RadioGroup'
 import style from './UIFactory.module.css'
 
 const { Panel } = Collapse
 
 export const UIFactory = () => {
+  const [component, setComponent] = useState('')
+
+  const onAddItem = (name: string) => {
+    setComponent(name)
+  }
+
   return (
     <Collapse defaultActiveKey={['2']}>
       <Panel header="UIFactory" key="2">
         <h2>UI Factory</h2>
-        <p>In this task I need to create UI Factory</p>
+        <p>I need to create UI Factory in this task </p>
         <div className={style.uiBlock}>
           <div className={style.content}>
-            <ChooseComponent />
-            <Button className={style.btn} type="primary">
-              Create
+            <RadioGroup
+              title="What element do you want to create?"
+              items={['Button', 'Select', 'Arrow']}
+              onAddItem={onAddItem}
+            />
+            {component}
+            <Button className={style.btn} type="default">
+              Continue
             </Button>
           </div>
           <div className={style.component}>
