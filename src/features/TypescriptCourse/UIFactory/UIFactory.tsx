@@ -2,17 +2,21 @@ import { Divider, Collapse, Button } from 'antd'
 import { useState } from 'react'
 import { RadioGroup } from '../../../components/ui/RadioGroup/RadioGroup'
 import { ChooseComponent } from './ChooseComponent/ChooseComponent'
+import { CompNames } from './ChooseComponent/types'
 import style from './UIFactory.module.css'
 
 const { Panel } = Collapse
 
 export const UIFactory = () => {
-  const [component, setComponent] = useState('')
+  const [component, setComponent] = useState('' as CompNames)
   const [choose, setChoose] = useState(false)
 
-  const onAddItem = (name: string) => {
+  const onAddItem = (name: CompNames) => {
+    setChoose(false)
     setComponent(name)
   }
+
+  const componentNames: CompNames[] = ['Button', 'Alert', 'Arrow']
 
   return (
     <Collapse defaultActiveKey={['2']}>
@@ -23,7 +27,7 @@ export const UIFactory = () => {
           <div className={style.content}>
             <RadioGroup
               title="What element do you want to create?"
-              items={['Button', 'Select', 'Arrow']}
+              items={componentNames}
               onAddItem={onAddItem}
             />
             <Button
@@ -36,7 +40,9 @@ export const UIFactory = () => {
             </Button>
           </div>
           <div className={style.component}>
-            {choose && <ChooseComponent component={component} />}
+            {(choose && <ChooseComponent component={component} />) || (
+              <span>click the continue</span>
+            )}
           </div>
         </div>
 

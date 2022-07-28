@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { RadioChangeEvent } from 'antd'
 import { Radio } from 'antd'
+import { CompNames } from '../../../features/TypescriptCourse/UIFactory/ChooseComponent/types'
 
 type Props = {
   title: string
   items: string[]
-  onAddItem: (item: string) => void
+  onAddItem: (item: CompNames) => void
 }
 
 export const RadioGroup: React.FC<Props> = ({
