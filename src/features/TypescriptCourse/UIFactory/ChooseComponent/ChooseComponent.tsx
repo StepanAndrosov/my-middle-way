@@ -20,10 +20,8 @@ export const ChooseComponent: React.FC<Props> = ({ component }) => {
   }
 
   return (
-    <div className={style.chooseComp}>
-      <div className={style.component}>
-        <Card>{switchComponent(component)}</Card>
-      </div>
+    <div className={style.component}>
+      <Card>{switchComponent(component)}</Card>
     </div>
   )
 }
