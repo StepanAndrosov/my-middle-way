@@ -1,9 +1,10 @@
-import {MyButton} from '../../../../components/ui/Button/MyButtton'
+
 import {MyArrowIcon} from '../../../../components/ui/ArrowIcon/MyArrowIcon'
-import {Alert} from 'antd'
+import {Alert, Button} from 'antd'
 
 
-type ButtonType = typeof MyButton
+
+type ButtonType = typeof Button
 type AlertType = typeof Alert
 type Arrow = typeof MyArrowIcon
 
@@ -11,9 +12,12 @@ type MyComponents = ButtonType | AlertType | Arrow
 
 type CompNames = 'Button' | 'Alert' | 'Arrow'
 
-type getComponent = {
-  getComponent: (name: CompNames) => MyComponents
-}
+type BtnProps = 'primary' | 'default'
+type AlertProps = 'success' | 'info' | 'warning' | 'error'
+type ArrowProps = 'up' | 'right' | 'left' | 'down'
+
+type UnionProps = BtnProps | AlertProps | ArrowProps
+
 
 interface UiFactory {
     button: ButtonType;
@@ -27,5 +31,6 @@ export type {
     UiFactory,
     MyComponents,
     CompNames,
-    getComponent
+    UnionProps,
+    BtnProps,  AlertProps,  ArrowProps
 }

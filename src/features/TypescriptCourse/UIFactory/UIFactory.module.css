@@ -4,13 +4,7 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
-.component {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: 0;
-    margin-top: 24px;
-}
+
 
 .content {
     display: flex;
@@ -21,14 +15,21 @@
     margin-top: 20px;
 }
 
+.component {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 0;
+}
+
 
 @media (min-width: 1020px) {
     .uiBlock {
         flex-direction: row;
     }
     .component {
-        padding-left: 60px;
-        margin-top: 0;
+        margin-left: 60px;
     }
   }
 
@@ -38,9 +39,16 @@
 
   }
 
+  .radioSetup {
+    padding-left: 0px;
+  }
+
   @media (min-width: 1020px) {
     .chooseComp {
         flex-direction: row;
     }
+    .radioSetup {
+        padding-left: 60px;
+      }
 
   }

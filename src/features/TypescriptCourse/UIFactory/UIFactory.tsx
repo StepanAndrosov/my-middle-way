@@ -11,9 +11,9 @@ export const UIFactory = () => {
   const [component, setComponent] = useState('' as CompNames)
   const [choose, setChoose] = useState(false)
 
-  const onAddItem = (name: CompNames) => {
+  const onAddItem = (item: CompNames) => {
     setChoose(false)
-    setComponent(name)
+    setComponent(item)
   }
 
   const componentNames: CompNames[] = ['Button', 'Alert', 'Arrow']
@@ -39,11 +39,7 @@ export const UIFactory = () => {
               Continue
             </Button>
           </div>
-          <div className={style.component}>
-            {(choose && <ChooseComponent component={component} />) || (
-              <span>click the continue</span>
-            )}
-          </div>
+          <div>{choose && <ChooseComponent component={component} />}</div>
         </div>
 
         <Divider />
