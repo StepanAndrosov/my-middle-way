@@ -93,7 +93,6 @@ export const Header = () => {
         className={style.Menu}
         theme="dark"
         defaultSelectedKeys={['home']}
-        defaultOpenKeys={['menu']}
         mode="inline"
         onClick={onClick}
         items={items}

@@ -20,7 +20,7 @@ export const UIFactory = () => {
 
   return (
     <Collapse defaultActiveKey={['2']}>
-      <Panel header="UIFactory" key="2">
+      <Panel header="UI Factory" key="2">
         <h2>UI Factory</h2>
         <p>I need to create UI Factory in this task </p>
         <div className={style.uiBlock}>
