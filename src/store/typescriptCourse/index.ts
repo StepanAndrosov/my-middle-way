@@ -1,9 +1,9 @@
-import { slice } from "./ledger/ledgerReducer";
+import { slice as ledgerSlice } from "./ledger/ledgerReducer";
 
-const ledgerReducer = slice.reducer
+const ledgerReducer = ledgerSlice.reducer
 
 const ledgerActions = {
-    ...slice.actions
+    ...ledgerSlice.actions
 }
 
 export {

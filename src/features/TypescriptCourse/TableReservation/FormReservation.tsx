@@ -1,5 +1,15 @@
 import { Button, Form, Input, InputNumber, DatePicker, Select } from 'antd'
 import styles from './TableReservation.module.css'
+import { message, Space } from 'antd'
+import { TableReservation } from './types'
+
+const success = () => {
+  message.success('This is a success message')
+}
+
+const error = () => {
+  message.error('This is an error message')
+}
 
 const { Option } = Select
 
@@ -11,17 +21,10 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 }
 
-type Reserve = {
-  id?: string
-  quests?: number
-  dateEvent?: string
-  options?: string[]
-}
-
 export const FormReservation = () => {
   const [form] = Form.useForm()
 
-  const onFinish = (values: Reserve) => {
+  const onFinish = (values: TableReservation) => {
     console.log(values)
   }
 
@@ -33,13 +36,13 @@ export const FormReservation = () => {
       name="control-hooks"
       onFinish={onFinish}
     >
-      <Form.Item name="id" label="Name">
+      <Form.Item name="name" label="Name">
         <Input />
       </Form.Item>
       <Form.Item name="quests" label="Number of guests">
         <InputNumber />
       </Form.Item>
-      <Form.Item name="dateEvent" label="Date Event">
+      <Form.Item name="dateEvent" label="Date event">
         <DatePicker />
       </Form.Item>
       <Form.Item name="options" label="Options">
@@ -54,6 +57,10 @@ export const FormReservation = () => {
           Submit
         </Button>
       </Form.Item>
+      <Space>
+        <Button onClick={success}>Success</Button>
+        <Button onClick={error}>Error</Button>
+      </Space>
     </Form>
   )
 }
