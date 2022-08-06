@@ -8,10 +8,10 @@ import style from './UIFactory.module.css'
 const { Panel } = Collapse
 
 export const UIFactory = () => {
-  const [component, setComponent] = useState('' as CompNames)
+  const [component, setComponent] = useState('')
   const [choose, setChoose] = useState(false)
 
-  const onAddItem = (item: CompNames) => {
+  const onAddItem = (item: string) => {
     setChoose(false)
     setComponent(item)
   }

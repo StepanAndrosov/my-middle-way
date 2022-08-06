@@ -5,7 +5,7 @@ import { Radio } from 'antd'
 type Props = {
   title: string
   items: string[]
-  onAddItem: (item: any) => void
+  onAddItem: (item: string) => void
 }
 
 export const RadioGroup: React.FC<Props> = ({
