@@ -1,4 +1,4 @@
-import { APITest } from '../APITest/APITest'
+import { TableReservation } from '../TableReservation/TableReservation'
 import { Ledger } from '../Ledger/Ledger'
 import { UIFactory } from '../UIFactory/UIFactory'
 import style from './TypescriptCoursre.module.css'
@@ -9,7 +9,7 @@ export const TypescriptCourse: React.FC = () => {
       <h1>TypeScript Course</h1>
       <Ledger />
       <UIFactory />
-      <APITest />
+      <TableReservation />
     </div>
   )
 }

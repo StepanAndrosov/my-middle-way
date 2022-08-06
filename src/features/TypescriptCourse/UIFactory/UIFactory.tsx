@@ -19,7 +19,7 @@ export const UIFactory = () => {
   const componentNames: CompNames[] = ['Button', 'Alert', 'Arrow']
 
   return (
-    <Collapse defaultActiveKey={['2']}>
+    <Collapse>
       <Panel header="UI Factory" key="2">
         <h2>UI Factory</h2>
         <p>I need to create UI Factory in this task </p>
