@@ -1,15 +1,8 @@
 import { Button, Form, Input, InputNumber, DatePicker, Select } from 'antd'
 import styles from './TableReservation.module.css'
-import { message, Space } from 'antd'
 import { TableReservation } from './types'
-
-const success = () => {
-  message.success('This is a success message')
-}
-
-const error = () => {
-  message.error('This is an error message')
-}
+import { useActions } from '../../../utils/redux-utils'
+import { reservationActions } from '../../../store/typescriptCourse'
 
 const { Option } = Select
 
@@ -24,7 +17,10 @@ const tailLayout = {
 export const FormReservation = () => {
   const [form] = Form.useForm()
 
+  const { addReserve } = useActions(reservationActions)
+
   const onFinish = (values: TableReservation) => {
+    addReserve({ reserve: values })
     console.log(values)
   }
 
@@ -46,7 +42,7 @@ export const FormReservation = () => {
         <DatePicker />
       </Form.Item>
       <Form.Item name="options" label="Options">
-        <Select placeholder="Select a option" allowClear mode="multiple">
+        <Select placeholder="Select options" allowClear mode="multiple">
           <Option value="kid">children's menu</Option>
           <Option value="vip">vip menu</Option>
           <Option value="special">special menu</Option>
@@ -57,10 +53,6 @@ export const FormReservation = () => {
           Submit
         </Button>
       </Form.Item>
-      <Space>
-        <Button onClick={success}>Success</Button>
-        <Button onClick={error}>Error</Button>
-      </Space>
     </Form>
   )
 }

@@ -1,10 +1,11 @@
 import thunk from "redux-thunk";
 import {configureStore} from "@reduxjs/toolkit";
 import {combineReducers} from "redux";
-import { ledgerReducer } from "./typescriptCourse";
+import { ledgerReducer, reservationReducer } from "./typescriptCourse";
 
 const rootReducer = combineReducers({
-    ledgerStore: ledgerReducer
+    ledgerStore: ledgerReducer,
+    reservationStore: reservationReducer
 })
 
 export const store = configureStore({
