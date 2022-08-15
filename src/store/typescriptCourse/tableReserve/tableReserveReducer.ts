@@ -23,6 +23,8 @@ export const slice = createSlice({
                     successMessage(`${key}: ${reserve[key as keyof typeof reserve]}`)
                 }
             })
+
+            state.reserve = reserve
         }
     },
 

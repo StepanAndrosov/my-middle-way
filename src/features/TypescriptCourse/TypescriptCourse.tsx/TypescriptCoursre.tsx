@@ -2,6 +2,7 @@ import { TableReservation } from '../TableReservation/TableReservation'
 import { Ledger } from '../Ledger/Ledger'
 import { UIFactory } from '../UIFactory/UIFactory'
 import style from './TypescriptCoursre.module.css'
+import { ListenerFactory } from '../ListenerFactory/LinstenerFactory'
 
 export const TypescriptCourse: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ export const TypescriptCourse: React.FC = () => {
       <Ledger />
       <UIFactory />
       <TableReservation />
+      <ListenerFactory />
     </div>
   )
 }
