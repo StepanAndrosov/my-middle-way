@@ -2,7 +2,7 @@ import { TableReservation } from '../TableReservation/TableReservation'
 import { Ledger } from '../Ledger/Ledger'
 import { UIFactory } from '../UIFactory/UIFactory'
 import style from './TypescriptCoursre.module.css'
-import { ListenerFactory } from '../ListenerFactory/LinstenerFactory'
+import { ListenerFactory } from '../ListenerFactory/ListenerFactory'
 
 export const TypescriptCourse: React.FC = () => {
   return (
