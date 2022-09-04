@@ -27,5 +27,4 @@ export const slice = createSlice({
             state.reserve = reserve
         }
     },
-
 })
