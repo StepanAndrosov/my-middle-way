@@ -3,7 +3,6 @@ import fs from 'fs';
 import path from 'path';
 
 
-
 const ethers = hre.ethers;
 
 async function main() {
@@ -27,7 +26,7 @@ async function main() {
 }
 
 function saveFrontendFiles(contracts) {
-  const contractsDir = path.join(__dirname, '../../', 'features/Solidity/contracts')
+  const contractsDir = path.join(__dirname, '../../src/', 'features/Solidity/contracts')
 
   if(!fs.existsSync(contractsDir)) {
     fs.mkdirSync(contractsDir)
