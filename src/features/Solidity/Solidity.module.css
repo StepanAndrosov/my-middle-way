@@ -1,0 +1,8 @@
+.Course {
+    padding-left: 10px;
+  }
+  @media (min-width: 640px) {
+    .Course {
+      padding-left: 30px;
+    }
+  }

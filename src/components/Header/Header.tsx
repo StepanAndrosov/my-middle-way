@@ -35,6 +35,7 @@ const items: MenuItem[] = [
     getItem(<NavLink to="algorithms">Algorithms</NavLink>, 'algorithms'),
     getItem(<NavLink to="regex">Regular expression</NavLink>, 'regex'),
     getItem(<NavLink to="networks">Networks</NavLink>, 'networks'),
+    getItem(<NavLink to="solidity">Solidity</NavLink>, 'solidity'),
   ]),
 ]
 
@@ -86,6 +87,14 @@ export const Header = () => {
             style={({ isActive }) => (isActive ? activeStyle : {})}
           >
             Networks
+          </NavLink>
+        </Col>
+        <Col span={4}>
+          <NavLink
+            to="solidity"
+            style={({ isActive }) => (isActive ? activeStyle : {})}
+          >
+            Solidity
           </NavLink>
         </Col>
       </Row>

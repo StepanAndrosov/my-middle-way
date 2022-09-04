@@ -1,4 +1,4 @@
-import type { TableReservation } from '../../../features/TypescriptCourse/TableReservation/types';
+import type { TableReservation } from '../../../features/TSCourse/TableReservation/types';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { errorMessage, successMessage } from '../../../utils/messsage-utils';
 

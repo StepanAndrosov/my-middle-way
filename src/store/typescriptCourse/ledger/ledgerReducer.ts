@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { LedgerItem, AccountDaily } from "../../../features/TypescriptCourse/Ledger/types"
+import { LedgerItem, AccountDaily } from "../../../features/TSCourse/Ledger/types"
 import { ledgerDB } from "../../../data"
 
 const initialState = {
