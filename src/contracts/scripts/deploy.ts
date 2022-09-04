@@ -1,23 +1,61 @@
-import { ethers } from "hardhat";
+import hre from 'hardhat';
+import fs from 'fs';
+import path from 'path';
+
+
+
+const ethers = hre.ethers;
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+  const [deployer] = await ethers.getSigners()
 
-  const lockedAmount = ethers.utils.parseEther("1");
+  console.log("Deploying with", await deployer.getAddress())
 
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  const DutchAuction = await ethers.getContractFactory("DutchAuction", deployer)
+  
+  // deploying contract
+  const auction = await DutchAuction.deploy(
+    ethers.utils.parseEther('0.1'),
+    1,
+    "Bike"
+  )
+  
+  await auction.deployed()
 
-  await lock.deployed();
-
-  console.log(`Lock with 1 ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`);
+  // creating folder contracts in frontend (features/Solidity)
+  saveFrontendFiles({DutchAuction: auction})
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+function saveFrontendFiles(contracts) {
+  const contractsDir = path.join(__dirname, '../../', 'features/Solidity/contracts')
+
+  if(!fs.existsSync(contractsDir)) {
+    fs.mkdirSync(contractsDir)
+  }
+
+  Object.entries(contracts).forEach((contract_item) => {
+    console.log(contract_item)
+    const [name, contract] = contract_item
+
+    if(contract) {
+      fs.writeFileSync(
+        path.join(contractsDir, '/', name + '-contract-address.json'),
+        JSON.stringify({[name]: contract.address}, undefined, 2)
+      )
+    }
+
+    const ContractArtifact = hre.artifacts.readArtifactSync(name)
+
+    fs.writeFileSync(
+      path.join(contractsDir, '/', name + ".json"),
+      JSON.stringify(ContractArtifact, null, 2)
+    )
+  })
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error)
+    process.exit(1)
+  })

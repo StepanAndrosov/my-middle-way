@@ -2,7 +2,9 @@
   "scripts": {
     "coverage": "npx hardhat coverage",
     "test": "npx hardhat test",
-    "re": "npx hardhat clean && npx hardhat compile && npm run bench"
+    "compile": "npx hardhat clean && npx hardhat compile",
+    "hardhat-node": "npx hardhat node",
+    "run-scripts": "npx hardhat run scripts\\deploy.ts --network localhost"
   },
   "dependencies": {},
   "devDependencies": {
