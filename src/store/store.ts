@@ -2,13 +2,14 @@ import thunk from "redux-thunk";
 import {configureStore} from "@reduxjs/toolkit";
 import {combineReducers} from "redux";
 import { ledgerReducer, reservationReducer } from "./typescriptCourse";
-import { dutchAuctionReducer } from "./solidity";
+import { dutchAuctionReducer, walletReducer } from "./solidity";
 
 const rootReducer = combineReducers({
     //tscourse stores
     ledgerStore: ledgerReducer,
     reservationStore: reservationReducer,
     // sol stores
+    walletStore: walletReducer,
     dutchStore: dutchAuctionReducer
 })
 

@@ -2,7 +2,7 @@
 interface IDutchAuction {
     selectedAccount: string,
     txBeingSent: boolean,
-    networkError: boolean,
+    networkError: string,
     transactionError: boolean,
     balance: string
 }
