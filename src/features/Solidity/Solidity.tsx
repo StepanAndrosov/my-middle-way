@@ -8,6 +8,7 @@ import {
   metamaskExtension,
   metamaskExtensionErr,
 } from '../../store/solidity/selectors'
+import { HARDHAT_NETWORK_ID } from '../../store/solidity/types'
 
 export const Solidity: React.FC = React.memo(() => {
   const initMetamask = useSelector(metamaskExtension)
@@ -15,9 +16,12 @@ export const Solidity: React.FC = React.memo(() => {
   const { setMetamaskError, setInitMatamask } = useActions(walletActions)
 
   useEffect(() => {
-    console.log('ext ethereum ', window.ethereum)
+    console.log('metamask ', window.ethereum)
     if (window.ethereum === undefined) {
       setMetamaskError({ error: 'Please install MetaMask!' })
+    }
+    if (window.ethereum.networkVersion !== HARDHAT_NETWORK_ID) {
+      setMetamaskError({ error: 'Please connect to localhost:8545' })
     } else {
       setInitMatamask()
     }

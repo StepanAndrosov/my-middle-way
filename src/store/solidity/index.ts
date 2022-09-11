@@ -1,11 +1,12 @@
 import {slice as dutchAuctionSlice} from './dutchAuction/dutchAuction'
-import {slice as walletSlice} from './wallet'
+import {slice as walletSlice, asyncActions as walletAsyncActions} from './wallet'
 
 const walletReducer = walletSlice.reducer
 const dutchAuctionReducer = dutchAuctionSlice.reducer
 
 const walletActions = {
-    ...walletSlice.actions
+    ...walletSlice.actions,
+    ...walletAsyncActions
 }
 const dutchAuctionActions = {
     ...dutchAuctionSlice.actions
