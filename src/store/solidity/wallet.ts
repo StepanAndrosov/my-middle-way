@@ -6,11 +6,12 @@ import { IWallet } from './types';
 const ehtProvider = window.ethereum
 
 const connect = createAsyncThunk('wallet/connect', async () => {
-    
     try {
         const [address] = await ehtProvider.request({ method: 'eth_requestAccounts' }) as string[]
-        console.log('thunk ', address)
-        return {address}
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const balance = (await provider.getBalance(address)).toString()
+        
+        return {address, balance}
     } catch (error: any) {
         errorMessage(error.message)
     }
@@ -20,6 +21,7 @@ const initialize = createAsyncThunk('wallet/inittialize', async (param, {dispatc
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     try {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
+        
         return provider
     } catch (error: any) {
         errorMessage(error.message)
@@ -171,8 +173,11 @@ export const slice = createSlice({
     },
     extraReducers: builder => {
         builder.addCase(connect.fulfilled, (state, action) => {
-            if(action.payload)
-            state.wallet = action.payload.address 
+            if(action.payload) {
+                state.wallet = action.payload.address 
+                state.balance = action.payload?.balance
+            }
+            
             console.log('reducer ', action.payload?.address)
         }) 
     }

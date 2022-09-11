@@ -5,6 +5,7 @@ import { useActions } from '../../utils/redux-utils'
 import { walletActions } from '../../store/solidity'
 import { useSelector } from 'react-redux'
 import {
+  balanceAccount,
   metamaskExtension,
   metamaskExtensionErr,
   wallet,
@@ -19,6 +20,7 @@ export const Solidity: React.FC = React.memo(() => {
   const metamaskErr = useSelector(metamaskExtensionErr)
   const connectLabel = useSelector(walletLabel)
   const userWallet = useSelector(wallet)
+  const balance = useSelector(balanceAccount)
   const { setMetamaskError, setInitMatamask, connect } =
     useActions(walletActions)
 
@@ -46,6 +48,7 @@ export const Solidity: React.FC = React.memo(() => {
           {connectLabel}
         </Button>
       </div>
+      <span>Your balance : {balance}</span>
       {metamaskErr && <div>{metamaskErr}</div>}
       <DutchAuction />
     </div>

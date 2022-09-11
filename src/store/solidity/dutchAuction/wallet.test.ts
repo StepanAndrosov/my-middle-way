@@ -28,9 +28,11 @@ test("correct setInit", () => {
     expect(endState.initMetamaskExtension).toBeTruthy()
 })
 test("correct set address", () => {
-    const address = "0x00"   
-    const action = connect.fulfilled({address}, "requestId", undefined)
+    const address = "0x00"
+    const balance = "10000ETH"   
+    const action = connect.fulfilled({address, balance}, "requestId", undefined)
     const endState = walletReducer(startState, action)
 
     expect(endState.wallet).toBe(address)
+    expect(endState.balance).toBe(balance)
 })
