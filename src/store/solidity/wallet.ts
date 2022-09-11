@@ -3,14 +3,14 @@ import { errorMessage } from './../../utils/messsage-utils';
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit"
 import { IWallet } from './types';
 
-
-
 const ehtProvider = window.ethereum
 
 const connect = createAsyncThunk('wallet/connect', async () => {
+    
     try {
         const [address] = await ehtProvider.request({ method: 'eth_requestAccounts' }) as string[]
-        return address
+        console.log('thunk ', address)
+        return {address}
     } catch (error: any) {
         errorMessage(error.message)
     }
@@ -22,24 +22,9 @@ const initialize = createAsyncThunk('wallet/inittialize', async (param, {dispatc
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         return provider
     } catch (error: any) {
-        await errorMessage(error.message)
+        errorMessage(error.message)
     }
-} 
-    ) 
-        // this._provider = new ethers.providers.Web3Provider(window.ethereum)
-    
-        // this._auction = new ethers.Contract(
-        //   auctionAddress.DutchAuction,
-        //   auctionArtifact.abi,
-        //   this._provider.getSigner(0)
-        // )
-    
-        // this.setState({
-        //   selectedAccount: selectedAddress
-        // }, async () => {
-        //   await this.updateBalance()
-        // })
-      
+}) 
 
 
 // import { ConnectWallet } from '../components/ConnectWallet'
@@ -187,7 +172,8 @@ export const slice = createSlice({
     extraReducers: builder => {
         builder.addCase(connect.fulfilled, (state, action) => {
             if(action.payload)
-            state.wallet = action.payload  
+            state.wallet = action.payload.address 
+            console.log('reducer ', action.payload?.address)
         }) 
     }
 })

@@ -7,29 +7,45 @@ import { useSelector } from 'react-redux'
 import {
   metamaskExtension,
   metamaskExtensionErr,
+  wallet,
+  walletLabel,
 } from '../../store/solidity/selectors'
 import { HARDHAT_NETWORK_ID } from '../../store/solidity/types'
+import { Button } from 'antd'
+import { ButtonType } from 'antd/lib/button'
 
 export const Solidity: React.FC = React.memo(() => {
   const initMetamask = useSelector(metamaskExtension)
   const metamaskErr = useSelector(metamaskExtensionErr)
-  const { setMetamaskError, setInitMatamask } = useActions(walletActions)
+  const connectLabel = useSelector(walletLabel)
+  const userWallet = useSelector(wallet)
+  const { setMetamaskError, setInitMatamask, connect } =
+    useActions(walletActions)
 
   useEffect(() => {
-    console.log('metamask ', window.ethereum)
     if (window.ethereum === undefined) {
       setMetamaskError({ error: 'Please install MetaMask!' })
+      return
     }
     if (window.ethereum.networkVersion !== HARDHAT_NETWORK_ID) {
       setMetamaskError({ error: 'Please connect to localhost:8545' })
+      return
     } else {
       setInitMatamask()
     }
-  }, [setMetamaskError, setInitMatamask])
+  }, [setMetamaskError, setInitMatamask, connect])
+
+  const setTypeButton = (): ButtonType =>
+    userWallet ? 'primary' : 'default'
 
   return (
     <div className={style.Course}>
-      <h1>Solidity</h1>
+      <div className={style.TitleGroup}>
+        <h1>Solidity</h1>
+        <Button onClick={connect} type={setTypeButton()}>
+          {connectLabel}
+        </Button>
+      </div>
       {metamaskErr && <div>{metamaskErr}</div>}
       <DutchAuction />
     </div>
