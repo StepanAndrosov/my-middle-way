@@ -7,12 +7,12 @@ import { IWallet } from './types';
 
 const ehtProvider = window.ethereum
 
-const connect = createAsyncThunk('wallet/connect', async (param, {dispatch}) => {
+const connect = createAsyncThunk('wallet/connect', async () => {
     try {
         const [address] = await ehtProvider.request({ method: 'eth_requestAccounts' }) as string[]
         return address
     } catch (error: any) {
-        await errorMessage(error.message)
+        errorMessage(error.message)
     }
 })
 
@@ -160,9 +160,7 @@ export const asyncActions = {
     connect
 } 
 
-
-const initialState: { initWallet: IWallet } = {
-    initWallet: {
+const initialState: IWallet  = {
         wallet: '',
         balance: '',
         signer: null,
@@ -171,7 +169,6 @@ const initialState: { initWallet: IWallet } = {
         metamaskExtensionError: '',
         networkError: '',
         transactionError: ''
-    } 
 }
 
 export const slice = createSlice({
@@ -179,18 +176,18 @@ export const slice = createSlice({
     initialState,
     reducers: {
         setMetamaskError(state, action: PayloadAction<{error: string}>) {
-            state.initWallet.metamaskExtensionError = action.payload.error
-            state.initWallet.initMetamaskExtension = false
+            state.metamaskExtensionError = action.payload.error
+            state.initMetamaskExtension = false
             errorMessage(action.payload.error)
         },
         setInitMatamask(state) {
-            state.initWallet.initMetamaskExtension = true
+            state.initMetamaskExtension = true
         }
     },
     extraReducers: builder => {
         builder.addCase(connect.fulfilled, (state, action) => {
             if(action.payload)
-            state.initWallet.wallet = action.payload  
+            state.wallet = action.payload  
         }) 
     }
 })
