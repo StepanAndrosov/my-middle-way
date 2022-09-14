@@ -13,7 +13,7 @@ const startState: IWallet  = {
     transactionError: ''
 }
 
-const {connect, setMetamaskError, setInitMatamask} = walletActions
+const {connect, updateBalance, setMetamaskError, setInitMatamask} = walletActions
 test("correct setError", () => {
     const err = "some error"   
     const action = setMetamaskError({error: err})
@@ -34,5 +34,11 @@ test("correct set address", () => {
     const endState = walletReducer(startState, action)
 
     expect(endState.wallet).toBe(address)
+    expect(endState.balance).toBe(balance)
+})
+test("update balance works correctly", () => {
+    const balance = "10000ETH"   
+    const action = updateBalance.fulfilled({ balance}, "requestId", undefined)
+    const endState = walletReducer(startState, action)
     expect(endState.balance).toBe(balance)
 })

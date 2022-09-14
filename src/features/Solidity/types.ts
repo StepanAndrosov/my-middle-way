@@ -1,10 +1,6 @@
 
 interface IDutchAuction {
-    selectedAccount: string,
-    txBeingSent: boolean,
-    networkError: string,
-    transactionError: boolean,
-    balance: string
+    currentPrice: ''
 }
 
 export type {
