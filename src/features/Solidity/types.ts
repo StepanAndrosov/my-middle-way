@@ -1,6 +1,8 @@
+import type { Contract, ethers } from "ethers"
 
 interface IDutchAuction {
-    currentPrice: ''
+    currentPrice: '',
+    auction: Contract | any
 }
 
 export type {

@@ -1,5 +1,5 @@
-import { IWallet } from "../types";
-import { walletReducer, walletActions } from "..";
+import { IWallet } from "./types";
+import { walletReducer, walletActions } from ".";
 
 
 const startState: IWallet  = {
