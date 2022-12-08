@@ -16,7 +16,6 @@ const { Header, Footer, Content } = Layout
 function App() {
   return (
     <div className="App">
-      <span>learn react</span>
       <Layout style={{ minHeight: '100vh' }}>
         <Header>
           <MyHeader />
