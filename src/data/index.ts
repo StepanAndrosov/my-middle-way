@@ -1,3 +1,4 @@
-import { ledgerDB } from "./ledger/ledgerDB";
+import { ledgerDB } from './ledger/ledgerDB'
+import { leaderboard } from './leaderboard/leaderboard'
 
-export {ledgerDB}
+export { ledgerDB, leaderboard }

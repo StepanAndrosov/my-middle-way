@@ -1,11 +1,11 @@
-import { Empty } from 'antd'
+import styles from './Algorithms.module.css'
+import { BynarySearch } from './'
 
 export const Algorithms: React.FC = () => {
   return (
-    <div>
+    <div className={styles.Course}>
       <h1>Algorithms</h1>
-      <p>Example algorithms will be here soon</p>
-      <Empty />
+      <BynarySearch />
     </div>
   )
 }
