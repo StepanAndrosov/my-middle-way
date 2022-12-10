@@ -1,14 +1,18 @@
 import { memo } from 'react'
-import { MySelect } from '../../../components'
+import { lastPlayerPoints, firstPlayerPoints } from './selectors'
+import { useSelector } from 'react-redux'
+import styles from './BynarySearch.module.css'
 
 export const ChoosePoints = memo(() => {
+  const firstPlace = useSelector(firstPlayerPoints)
+  const lastPlace = useSelector(lastPlayerPoints)
   return (
-    <div>
-      <MySelect
-        placeholder="choose points"
-        options={['101', '202']}
-        onAddItem={() => {}}
-      />
+    <div className={styles.choose}>
+      Choose points between:
+      <div>
+        <span className={styles.chooseElememt}>{lastPlace} p.</span>
+        <span className={styles.chooseElememt}>{firstPlace} p.</span>
+      </div>
     </div>
   )
 })

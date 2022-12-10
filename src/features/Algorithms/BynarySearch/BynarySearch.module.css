@@ -1,0 +1,14 @@
+
+
+.choose {
+    display: flex;
+    flex-direction: column;
+}
+
+.chooseElememt {
+    font-weight: 500;
+}
+
+.chooseElememt:first-child {
+    margin-right: 12px;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Divider, Collapse } from 'antd'
 import styles from './BynarySearch.module.css'
+import { ChoosePoints } from './ChoosePoints'
 
 const { Panel } = Collapse
 
@@ -17,7 +18,9 @@ export const BynarySearch = React.memo(() => {
           In the problem I need to find a league and a place in the league
           by the number of points
         </p>
-        <div className={styles.content}></div>
+        <div className={styles.content}>
+          <ChoosePoints />
+        </div>
 
         <Divider />
       </Panel>
