@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import type { Leaderboard } from '../../features/Algorithms/types'
 
 import { leaderboard } from '../../data'
 
