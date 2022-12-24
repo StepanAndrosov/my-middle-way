@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Col, Row } from 'antd'
 import style from './Header.module.css'
 import { NavLink } from 'react-router-dom'
@@ -36,6 +35,7 @@ const items: MenuItem[] = [
     getItem(<NavLink to="algorithms">Algorithms</NavLink>, 'algorithms'),
     getItem(<NavLink to="regex">Regular expression</NavLink>, 'regex'),
     getItem(<NavLink to="networks">Networks</NavLink>, 'networks'),
+    getItem(<NavLink to="solidity">Solidity</NavLink>, 'solidity'),
   ]),
 ]
 
@@ -89,12 +89,19 @@ export const Header = () => {
             Networks
           </NavLink>
         </Col>
+        <Col span={4}>
+          <NavLink
+            to="solidity"
+            style={({ isActive }) => (isActive ? activeStyle : {})}
+          >
+            Solidity
+          </NavLink>
+        </Col>
       </Row>
       <Menu
         className={style.Menu}
         theme="dark"
         defaultSelectedKeys={['home']}
-        defaultOpenKeys={['menu']}
         mode="inline"
         onClick={onClick}
         items={items}

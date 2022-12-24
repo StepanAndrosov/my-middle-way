@@ -3,7 +3,13 @@ import './App.css'
 import { Layout } from 'antd'
 import { Route, Routes } from 'react-router-dom'
 import { Home, Header as MyHeader } from './components'
-import { TypescriptCourse, Algorithms, RegEx, Networks } from './features'
+import {
+  TSCourse,
+  Algorithms,
+  RegEx,
+  Networks,
+  Solidity,
+} from './features'
 
 const { Header, Footer, Content } = Layout
 
@@ -23,10 +29,11 @@ function App() {
           <div className="site-layout-content">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/typescript" element={<TypescriptCourse />} />
+              <Route path="/typescript" element={<TSCourse />} />
               <Route path="/algorithms" element={<Algorithms />} />
               <Route path="/regex" element={<RegEx />} />
               <Route path="/networks" element={<Networks />} />
+              <Route path="/solidity" element={<Solidity />} />
             </Routes>
           </div>
         </Content>

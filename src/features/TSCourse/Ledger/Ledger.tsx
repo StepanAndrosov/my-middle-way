@@ -8,7 +8,7 @@ const { Panel } = Collapse
 
 export const Ledger = React.memo(() => {
   return (
-    <Collapse defaultActiveKey={['1']}>
+    <Collapse>
       <Panel header="Ledger" key="1">
         <h2>Ledger</h2>
         <p>

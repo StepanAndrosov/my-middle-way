@@ -1,12 +1,20 @@
-import { slice } from "./ledger/ledgerReducer";
+import { slice as ledgerSlice } from "./ledger/ledgerReducer";
+import {slice as reservationSlice} from "./tableReserve/tableReserveReducer"
 
-const ledgerReducer = slice.reducer
-
+const ledgerReducer = ledgerSlice.reducer
 const ledgerActions = {
-    ...slice.actions
+    ...ledgerSlice.actions
+}
+
+const reservationReducer = reservationSlice.reducer
+const reservationActions = {
+    ...reservationSlice.actions
 }
 
 export {
     ledgerReducer,
-    ledgerActions
+    ledgerActions,
+
+    reservationReducer,
+    reservationActions
 }

@@ -1,28 +1,21 @@
 @import '~antd/dist/antd.css';
 .App {
   height: 100%;
-  max-width: 1440px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0;
 }
 
-.site-content {
-  padding: 0 8px;
-}
 
 .site-layout-content {
   min-height: 80vh;
-  padding: 0 8px;
   background: #fff;
+  padding: 16px;
 }
 @media (min-width: 640px) {
-  .App {
-    padding: 0 20px;
-  }
+
   .site-layout-content {
-    padding: 24px;
+    padding: 32px;
   }
-  .site-content {
-    padding: 0 50px;
-  }
+
 }

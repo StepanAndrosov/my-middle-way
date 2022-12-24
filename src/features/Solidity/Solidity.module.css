@@ -1,0 +1,14 @@
+.Course {
+    padding-left: 10px;
+  }
+  @media (min-width: 640px) {
+    .Course {
+      padding-left: 30px;
+    }
+  }
+.TitleGroup {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+}

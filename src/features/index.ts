@@ -1,11 +1,13 @@
-import { TypescriptCourse } from "./TypescriptCourse/TypescriptCourse.tsx/TypescriptCoursre";
+import { TSCourse } from "./TSCourse/TSCourse.tsx/TSCoursre";
 import { Algorithms } from "./Algorithms/Algorithms";
 import { RegEx } from "./RegularEx/RegEx";
 import { Networks } from "./Networks/Networks";
+import { Solidity } from "./Solidity/Solidity";
 
 export {
-    TypescriptCourse,
+    TSCourse,
     Algorithms,
     RegEx,
-    Networks
+    Networks,
+    Solidity
 }
