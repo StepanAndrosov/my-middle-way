@@ -1,5 +1,8 @@
 import { AppStoreType } from '../../../store/store'
 
+export const getLeaderboard = (state: AppStoreType) =>
+  state.bynarySearchStore.leaderboard
+
 export const lastPlayerPoints = (state: AppStoreType) =>
   state.bynarySearchStore.leaderboard[0][0].leaguePoints
 

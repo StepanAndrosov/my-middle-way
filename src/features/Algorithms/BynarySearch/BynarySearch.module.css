@@ -2,6 +2,7 @@
 .choose {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .chooseElememt {
@@ -14,4 +15,29 @@
 
 .Input {
     margin-top: 24px;
+}
+
+.chooseButton {
+    margin-top: 20px;
+}
+.Content {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 0;
+}
+
+.PlayerCard {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+}
+@media(min-width: 760px) {
+    .Content {
+        flex-direction: row;
+        padding: 64px 0;
+    }
+    .PlayerCard {
+        margin-top: 0;
+        margin-left: 64px;
+    }
 }

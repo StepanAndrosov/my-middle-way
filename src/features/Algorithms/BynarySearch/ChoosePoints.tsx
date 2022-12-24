@@ -4,7 +4,11 @@ import { useSelector } from 'react-redux'
 import styles from './BynarySearch.module.css'
 import { InputNumber, Button } from 'antd'
 
-export const ChoosePoints = memo(() => {
+type Props = {
+  handleChange: (points: number) => void
+}
+
+export const ChoosePoints: React.FC<Props> = memo((props) => {
   const firstPlace = useSelector(firstPlayerPoints)
   const lastPlace = useSelector(lastPlayerPoints)
 
@@ -14,9 +18,13 @@ export const ChoosePoints = memo(() => {
     setPoints(value)
   }
 
+  const onClick = () => {
+    props.handleChange(points)
+  }
+
   return (
     <div className={styles.choose}>
-      Choose points between:
+      Choose points:
       <div>
         <span className={styles.chooseElememt}>
           from {lastPlace} {lastPlace === 1 ? 'point' : 'points'}
@@ -32,8 +40,12 @@ export const ChoosePoints = memo(() => {
           onChange={onChange}
         />
       </div>
-      {points}
-      <Button type="primary" disabled={!points}>
+      <Button
+        type="primary"
+        disabled={!points}
+        className={styles.chooseButton}
+        onClick={onClick}
+      >
         choose
       </Button>
     </div>
