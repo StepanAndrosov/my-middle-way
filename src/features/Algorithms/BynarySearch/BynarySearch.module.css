@@ -34,7 +34,7 @@
 @media(min-width: 760px) {
     .Content {
         flex-direction: row;
-        padding: 64px 0;
+        padding: 32px 0;
     }
     .PlayerCard {
         margin-top: 0;
